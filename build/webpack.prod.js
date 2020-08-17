@@ -70,7 +70,24 @@ module.exports = (env, argv) => {
                         "less-loader",
                     ],
                 },
-
+                {
+                  test: /\.scss$/i,
+                  use: [
+                      {
+                          loader: MiniCssExtractPlugin.loader,
+                          options: {
+                              esModule: true,
+                          },
+                      },
+                      {
+                          loader: "css-loader",
+                          options: { modules: true, importLoaders: 1 },
+                      },
+                      {
+                          loader: "sass-loader",
+                      },
+                  ],
+              },
                 {
                     test: /\.less$/i,
                     use: [

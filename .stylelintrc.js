@@ -8,7 +8,8 @@ module.exports = {
     'function-name-case': 'lower',
     'no-descending-specificity': null,
     'no-invalid-double-slash-comments': null,
-    'rule-empty-line-before': 'always',
+    'rule-empty-line-before': null,
+    'at-rule-no-unknown': [true, { ignoreAtRules: ['mixin', 'extend', 'content', 'include', 'if'] }],
   },
   ignoreFiles: ['node_modules/**/*', 'build/**/*'],
 };

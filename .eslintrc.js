@@ -36,6 +36,12 @@ module.exports = {
   },
   plugins: ['react', '@typescript-eslint'],
   rules: {
+    'import/no-extraneous-dependencies': 'off',
+    'react/button-has-type': 'off',
+    'global-require': 'off',
+    'react/jsx-props-no-spreading': 'off',
+    'react/jsx-filename-extension': 'off',
+    'import/no-unresolved': 'off',
     'import/extensions': [
       ERROR,
       'ignorePackages',
