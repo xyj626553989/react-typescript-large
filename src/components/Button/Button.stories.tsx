@@ -7,7 +7,9 @@ export default {
   title: 'Components/Button',
   component: Button,
 } as Meta;
-const Template: Story<ButtonProperties> = (properties) => (
+const Template: Story<ButtonProperties> = (
+  properties: JSX.IntrinsicAttributes & ButtonProperties & React.RefAttributes<unknown>,
+) => (
   <Button onClick={action('button-click')} {...properties}>
     Button
   </Button>

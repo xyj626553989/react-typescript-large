@@ -11,7 +11,7 @@ const App = () => {
   };
   return (
     <>
-      <Button onClick={onClick} ref={reference}>
+      <Button autoFocus onClick={onClick} ref={reference}>
         default
       </Button>
       <Button btnType="primary" className="custom-class">

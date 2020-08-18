@@ -1,10 +1,10 @@
-import React, { ButtonHTMLAttributes, forwardRef } from 'react';
+import React, { ButtonHTMLAttributes, forwardRef, AnchorHTMLAttributes } from 'react';
 import classNames from 'classnames';
 
 export type ButtonSize = 'lg' | 'sm';
 export type ButtonType = 'primary' | 'default' | 'danger' | 'link';
 
-export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface BaseButtonProps {
   className?: string;
   disabled?: boolean;
   size?: ButtonSize;
@@ -13,7 +13,9 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   isLoading?: boolean;
   block?: boolean;
 }
-
+type NativeButtonProps = BaseButtonProps & ButtonHTMLAttributes<HTMLButtonElement>;
+type AnchorButtonProps = BaseButtonProps & AnchorHTMLAttributes<HTMLAnchorElement>;
+export type ButtonProps = Partial<NativeButtonProps & AnchorButtonProps>;
 const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (properties, reference) => {
   const { btnType, disabled, size, children, href, className, block, ...properties_ } = properties;
   const buttonReference = (reference as any) || React.createRef<HTMLElement>();
@@ -28,7 +30,7 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
    */
   if (btnType === 'link' && href) {
     return (
-      <a className={classes} href={href} ref={buttonReference}>
+      <a className={classes} href={href} ref={buttonReference} {...properties_}>
         {children}
       </a>
     );
