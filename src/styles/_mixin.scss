@@ -3,6 +3,7 @@
   font-size: $font-size;
   border-radius: $border-radius;
 }
+
 @mixin button-style(
   $background,
   $border,
@@ -19,7 +20,7 @@
   &:focus,
   &.focus {
     color: $hover-color;
-    background: $background;
+    background: $hover-background;
     border-color: $hover-border;
   }
 

@@ -1,21 +1,30 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import ReactDOM from 'react-dom';
 import Button from './components/Button';
 // eslint-disable-next-line import/no-unresolved
 import '@/styles/index.scss';
 
 const App = () => {
+  const reference = useRef();
+  const onClick = () => {
+    console.log(reference);
+  };
   return (
     <>
-      <Button>hello word</Button>
-      <Button btnType="primary" size="lg">
-        hello word
+      <Button onClick={onClick} ref={reference}>
+        default
+      </Button>
+      <Button btnType="primary" className="custom-class">
+        primary
+      </Button>
+      <Button size="lg" btnType="primary">
+        default lg
       </Button>
       <Button btnType="danger" size="lg">
-        hello word
+        danger
       </Button>
       <Button btnType="primary" size="sm">
-        hello word
+        primary-sm
       </Button>
       <Button btnType="link" href="//www.baidu.com">
         hello word

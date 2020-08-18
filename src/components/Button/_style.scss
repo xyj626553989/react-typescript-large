@@ -13,7 +13,6 @@
   cursor: pointer;
   transition: $btn-transition;
   @include button-size($btn-padding-x, $btn-padding-y, $btn-font-size, $btn-border-radius);
-
   &.disabled,
   &[disabled] {
     box-shadow: none;
@@ -25,7 +24,10 @@
     }
   }
 }
-
+.btn-block {
+  display: block !important;
+  width: 100%;
+}
 .btn-lg {
   @include button-size($btn-padding-x-lg, $btn-padding-y-lg, $btn-font-size-lg, $btn-border-radius-lg);
 }

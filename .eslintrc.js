@@ -42,6 +42,7 @@ module.exports = {
     'react/jsx-props-no-spreading': 'off',
     'react/jsx-filename-extension': 'off',
     'import/no-unresolved': 'off',
+    'unicorn/filename-case': 'off',
     'import/extensions': [
       ERROR,
       'ignorePackages',
