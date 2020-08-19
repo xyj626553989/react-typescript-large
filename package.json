@@ -23,7 +23,8 @@
   },
   "lint-staged": {
     "*.{ts,tsx,js}": [
-      "eslint --config .eslintrc.js"
+      "eslint --config .eslintrc.js",
+      "npm run test"
     ],
     "*.{css,less,scss}": [
       "stylelint --config .stylelintrc.js"
