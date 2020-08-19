@@ -14,6 +14,8 @@ module.exports = {
         filename: "[name].[hash].js",
         path: path.join(__dirname, "../dist"),
         chunkFilename: "[name].[chunkhash].js",
+        library: "s-design",
+        libraryTarget: "umd"
     },
     resolve: {
         extensions: [".ts", ".tsx", ".js"],

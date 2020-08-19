@@ -4,7 +4,7 @@ import classNames from 'classnames';
 export type ButtonSize = 'lg' | 'sm';
 export type ButtonType = 'primary' | 'default' | 'danger' | 'link';
 
-export interface BaseButtonProps {
+interface BaseButtonProps {
   className?: string;
   disabled?: boolean;
   size?: ButtonSize;
@@ -12,7 +12,6 @@ export interface BaseButtonProps {
   href?: string;
   isLoading?: boolean;
   block?: boolean;
-  htmlType?: 'submit' | 'reset' | 'button';
 }
 type NativeButtonProps = BaseButtonProps & ButtonHTMLAttributes<HTMLButtonElement>;
 type AnchorButtonProps = BaseButtonProps & AnchorHTMLAttributes<HTMLAnchorElement>;
@@ -45,10 +44,9 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
     </button>
   );
 };
-const Button = forwardRef<unknown, ButtonProps>(InternalButton);
+export const Button = forwardRef<unknown, ButtonProps>(InternalButton);
 Button.defaultProps = {
   disabled: false,
   btnType: 'default',
   type: 'button',
 };
-export default Button;
