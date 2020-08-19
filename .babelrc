@@ -3,12 +3,15 @@
     [
       "@babel/preset-env",
       {
-        "useBuiltIns": false,
-        "modules": false
+        "useBuiltIns": false
+        // "modules": false,
+        // "targets": {
+        //   "node": "current"
+        // }
       }
     ],
     "@babel/preset-react",
-    "@babel/typescript"
+    "@babel/preset-typescript"
   ],
   "plugins": [
     "react-hot-loader/babel",

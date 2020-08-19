@@ -1,7 +1,6 @@
 import React, { useRef } from 'react';
 import ReactDOM from 'react-dom';
 import Button from './components/Button';
-// eslint-disable-next-line import/no-unresolved
 import '@/styles/index.scss';
 
 const App = () => {
@@ -11,7 +10,7 @@ const App = () => {
   };
   return (
     <>
-      <Button autoFocus onClick={onClick} ref={reference}>
+      <Button type="button" autoFocus onClick={onClick} ref={reference}>
         default
       </Button>
       <Button btnType="primary" className="custom-class">

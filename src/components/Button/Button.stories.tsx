@@ -25,6 +25,7 @@ export const LinkDisabled = Template.bind({});
 export const Block = Template.bind({});
 Block.args = {
   block: true,
+  btnType: 'primary',
 };
 Primary.args = {
   btnType: 'primary',

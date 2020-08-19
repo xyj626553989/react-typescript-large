@@ -12,6 +12,7 @@ export interface BaseButtonProps {
   href?: string;
   isLoading?: boolean;
   block?: boolean;
+  htmlType?: 'submit' | 'reset' | 'button';
 }
 type NativeButtonProps = BaseButtonProps & ButtonHTMLAttributes<HTMLButtonElement>;
 type AnchorButtonProps = BaseButtonProps & AnchorHTMLAttributes<HTMLAnchorElement>;
