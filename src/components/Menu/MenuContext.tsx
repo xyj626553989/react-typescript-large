@@ -2,9 +2,8 @@ import { createContext } from 'react';
 
 export type MenuTheme = 'light' | 'dark';
 export interface MenuContextProps {
-  inlineCollapsed: boolean;
-  menuTheme?: MenuTheme;
-  direction?: 'ltr' | 'rtl';
+  index: number;
+  onSelect?: (selectIndex: number) => void;
 }
-const MenuContext = createContext<MenuContextProps>({ inlineCollapsed: false });
+const MenuContext = createContext<MenuContextProps>({ index: 0 });
 export default MenuContext;

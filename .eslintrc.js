@@ -44,6 +44,9 @@ module.exports = {
     'import/no-unresolved': 'off',
     'unicorn/filename-case': 'off',
     'import/prefer-default-export': 'off',
+    'react/destructuring-assignment': 'off',
+    'jsx-a11y/no-noninteractive-element-interactions': 'off',
+    'unicorn/no-null': 'off',
     'import/extensions': [
       ERROR,
       'ignorePackages',
