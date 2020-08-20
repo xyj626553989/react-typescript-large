@@ -43,6 +43,7 @@ module.exports = {
     'react/jsx-filename-extension': 'off',
     'import/no-unresolved': 'off',
     'unicorn/filename-case': 'off',
+    'import/prefer-default-export': 'off',
     'import/extensions': [
       ERROR,
       'ignorePackages',
