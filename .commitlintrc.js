@@ -19,6 +19,7 @@ module.exports = {
  * chore : 构建过程或辅助工具的变动
  * feat : 新功能
  * docs : 文档改变
+ * upd：更新某功能（不是 feat, 不是 fix）
  * fix : 修复bug
  * perf : 性能优化
  * refactor : 某个已有功能重构
@@ -26,4 +27,5 @@ module.exports = {
  * style : 代码格式改变
  * test : 增加测试
  * anno: 增加注释
+ * chore：构建过程或辅助工具的变动
  */

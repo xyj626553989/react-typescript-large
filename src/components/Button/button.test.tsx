@@ -39,6 +39,6 @@ describe('test Button Component', () => {
     const element = createElement({
       disabled: true,
     });
-    expect(element).toHaveAttribute('disabled');
+    expect(element).toBeDisabled();
   });
 });

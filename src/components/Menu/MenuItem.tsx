@@ -1,4 +1,4 @@
-import React, { CSSProperties, FC, PropsWithChildren } from 'react';
+import React, { CSSProperties, FC } from 'react';
 import classNames from 'classnames';
 
 export interface MenuItemProps {
