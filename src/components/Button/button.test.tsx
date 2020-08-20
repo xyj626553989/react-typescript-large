@@ -1,33 +1,44 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { Button } from '.';
+import Button, { ButtonProps as ButtonProperties } from '.';
 
-describe('test Button Component', () => {
-  it('should render the correct default button', () => {
-    const wrapper = render(<Button>Nice</Button>);
-    const element = wrapper.getByText('Nice');
+beforeEach(() => {
+  jest.useFakeTimers();
+});
+afterEach(() => {
+  jest.useRealTimers();
+});
+const createElement = (properties: ButtonProperties) => {
+  const wrapper = render(<Button {...properties}>Nice</Button>);
+  const element = wrapper.getByText('Nice');
+  return element;
+};
+describe('test Button Component', () => {
+  it('should render the correct default button', () => {
+    const element = createElement({});
     expect(element).toBeTruthy();
     expect(element).toBeInTheDocument();
     expect(element.tagName).toEqual('BUTTON');
-    expect(element).toHaveClass('btn btn-default');
+    expect(element).toHaveClass('btn btn-default');
   });
-  it('should render the correct based on different props', () => {
-    // const wrapper = render(<Button>Nice</Button>);
-    // const element = wrapper.getByText('Nice');
+  it('should render the correct based on different props', () => {
+    const danger = createElement({
+      btnType: 'danger',
+    });
+    expect(danger).toHaveClass('btn-danger');
   });
-  it('should render alink when btnType equals link and href is provided', () => {
-    const wrapper = render(
-      <Button href="//www.baidu.com" btnType="link">
-        Nice
-      </Button>,
-    );
-    const element = wrapper.getByText('Nice');
+  it('should render alink when btnType equals link and href is provided', () => {
+    const element = createElement({
+      href: '//www.baidu.com',
+      btnType: 'link',
+    });
     expect(element.tagName).toEqual('A');
     expect(element).toHaveAttribute('href');
   });
-  it('should render disabled when disabled is true', () => {
-    const wrapper = render(<Button disabled>Nice</Button>);
-    const element = wrapper.getByText('Nice');
+  it('should render disabled when disabled is true', () => {
+    const element = createElement({
+      disabled: true,
+    });
     expect(element).toHaveAttribute('disabled');
   });
 });

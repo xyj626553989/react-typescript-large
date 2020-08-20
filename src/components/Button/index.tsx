@@ -44,9 +44,10 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
     </button>
   );
 };
-export const Button = forwardRef<unknown, ButtonProps>(InternalButton);
+const Button = forwardRef<unknown, ButtonProps>(InternalButton);
 Button.defaultProps = {
   disabled: false,
   btnType: 'default',
   type: 'button',
 };
+export default Button;
