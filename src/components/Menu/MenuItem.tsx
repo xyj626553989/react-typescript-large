@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import MenuContext, { MenuContextProps as MenuContextProperties } from './MenuContext';
 
 export interface MenuItemProps {
-  index?: number;
+  index?: string;
   disabled?: boolean;
   className?: string;
   style?: CSSProperties;
@@ -18,7 +18,7 @@ const MenuItem: FC<MenuItemProps> = (properties) => {
     'menu-item-active': context.index === index,
   });
   const handleClick = useCallback(() => {
-    if (context.onSelect && !disabled && typeof index === 'number') {
+    if (context.onSelect && !disabled && typeof index === 'string') {
       context.onSelect(index);
     }
   }, [index, disabled, context]);

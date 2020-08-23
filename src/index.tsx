@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Menu from '@/components/Menu/Menu';
 import MenuItem from '@/components/Menu/MenuItem';
+import SubMenu from '@/components/Menu/SubMenu';
 import './styles/index.scss';
 
 const App = () => {
@@ -11,13 +12,17 @@ const App = () => {
         onSelect={(index) => {
           console.log(index);
         }}
+        mode="vertical"
+        defaultOpenedSubmenu={['1']}
       >
-        <MenuItem index={0}>111</MenuItem>
-        <MenuItem index={1} disabled>
-          222
-        </MenuItem>
-        <MenuItem index={2}>333</MenuItem>
-        <MenuItem index={3}>444</MenuItem>
+        <MenuItem>111</MenuItem>
+        <SubMenu title="SubMenu">
+          <MenuItem>45555555555544</MenuItem>
+          <MenuItem>555</MenuItem>
+          <MenuItem>666</MenuItem>
+        </SubMenu>
+        <MenuItem disabled>222</MenuItem>
+        <MenuItem>444</MenuItem>
       </Menu>
     </>
   );

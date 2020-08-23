@@ -3,24 +3,27 @@ import classNames from 'classnames';
 import MenuContext, { MenuTheme, MenuContextProps as MenuContextProperties } from './MenuContext';
 import { MenuItemProps as MenuItemProperties } from './MenuItem';
 
+export type mode = 'horizontal' | 'vertical';
 export interface MenuProps {
-  defaultIndex?: number;
+  defaultIndex?: string;
   className?: string;
-  mode?: 'horizontal' | 'vertical';
+  mode?: mode;
   style?: CSSProperties;
   theme?: MenuTheme;
-  onSelect?: (selectedIndex: number) => void;
+  onSelect?: (selectedIndex: string) => void;
+  defaultOpenedSubmenu?: string[];
 }
 
 const Menu: FC<MenuProps> = (properties) => {
-  const { className, theme, mode, style, children, onSelect, defaultIndex } = properties;
-  const [currentActive, setCurrentActive] = useState<number>(defaultIndex);
+  const { className, theme, mode, style, children, onSelect, defaultIndex, defaultOpenedSubmenu } = properties;
+  const [currentActive, setCurrentActive] = useState<string>(defaultIndex);
   const classes = classNames('s-menu', className, {
     'menu-vertical': mode === 'vertical',
+    'menu-horizontal': mode !== 'vertical',
     [`menu-${theme}`]: theme !== undefined,
   });
   const handleClick = useCallback(
-    (index: number) => {
+    (index: string) => {
       setCurrentActive(index);
       if (onSelect) {
         onSelect(index);
@@ -30,18 +33,20 @@ const Menu: FC<MenuProps> = (properties) => {
   );
   const contextValue: MenuContextProperties = {
     onSelect: handleClick,
-    index: currentActive || 0,
+    index: currentActive || '0',
+    mode,
+    defaultOpenedSubmenu,
   };
   const renderChildren = () => {
     return React.Children.map(children, (child, index: number) => {
       const childElement = child as React.FunctionComponentElement<MenuItemProperties>;
       const { displayName } = childElement.type;
-      if (displayName === 'MenuItem') {
+      if (displayName === 'MenuItem' || displayName === 'SubMenu') {
         return React.cloneElement(childElement, {
-          index,
+          index: index.toString(),
         });
       }
-      console.error('Warning: Menu has a child which is not MenuItem component');
+      console.error('Warning: Menu has a child which is not MenuItem or SubMenu component');
       return null;
     });
   };
@@ -53,9 +58,10 @@ const Menu: FC<MenuProps> = (properties) => {
 };
 
 Menu.defaultProps = {
-  defaultIndex: 0,
+  defaultIndex: '0',
   mode: 'horizontal',
   theme: 'light',
+  defaultOpenedSubmenu: [],
 };
 
 export default Menu;
