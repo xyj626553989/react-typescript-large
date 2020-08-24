@@ -9,7 +9,7 @@ module.exports = {
     'no-descending-specificity': null,
     'no-invalid-double-slash-comments': null,
     'rule-empty-line-before': null,
-    'at-rule-no-unknown': [true, { ignoreAtRules: ['mixin', 'extend', 'content', 'include', 'if'] }],
+    'at-rule-no-unknown': [true, { ignoreAtRules: ['mixin', 'extend', 'content', 'include', 'if', 'each'] }],
   },
   ignoreFiles: ['node_modules/**/*', 'build/**/*'],
 };
