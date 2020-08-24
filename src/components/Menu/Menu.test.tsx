@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, RenderResult, fireEvent, cleanup, wait } from '@testing-library/react';
+import { render, RenderResult, fireEvent, cleanup, waitFor } from '@testing-library/react';
 import Menu, { MenuProps as MenuProperties } from './Menu';
 import MenuItem, { MenuItemProps as MenuItemProperties } from './MenuItem';
 import SubMenu, { SubMenuProps as SubMenuProperties } from './SubMenu';
@@ -79,13 +79,13 @@ describe('test Menu and MenuItem component', () => {
     expect(wrapper.queryByText('drop1')).not.toBeVisible();
     const dropdownElement = wrapper.getByText('dropdown');
     fireEvent.mouseEnter(dropdownElement);
-    await wait(() => {
+    await waitFor(() => {
       expect(wrapper.queryByText('drop1')).toBeVisible();
     });
     fireEvent.click(wrapper.getByText('drop1'));
     expect(testProperties.onSelect).toHaveBeenCalledWith('3-0');
     fireEvent.mouseLeave(dropdownElement);
-    await wait(() => {
+    await waitFor(() => {
       expect(wrapper.queryByText('drop1')).not.toBeVisible();
     });
   });
