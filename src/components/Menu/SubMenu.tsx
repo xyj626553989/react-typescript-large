@@ -2,7 +2,7 @@ import React, { FunctionComponentElement, useState, FC, useContext, useCallback,
 import classNames from 'classnames';
 import MenuContext, { MenuContextProps as MenuContextProperties } from './MenuContext';
 import { MenuItemProps as MenuItemProperties } from './MenuItem';
-import { AngleDown } from '../Icon';
+import Icon from '../Icon';
 
 export interface SubMenuProps {
   index?: string;
@@ -18,6 +18,8 @@ const SubMenu: FC<SubMenuProps> = (properties) => {
   const [opened, setOpened] = useState<boolean>(isOpened);
   const classes = classNames('menu-item submenu-item', className, {
     'menu-item-active': context.index === index,
+    'is-opened': opened,
+    'is-vertical': context.mode === 'vertical',
   });
   const handleMouse = useCallback((event: React.MouseEvent, toggle: boolean) => {
     clearTimeout(timer);
@@ -67,7 +69,7 @@ const SubMenu: FC<SubMenuProps> = (properties) => {
   return (
     <li key={index} className={classes} {...hoverEvents}>
       <div className="submenu-title" {...clickEvents}>
-        {title} <AngleDown size="sm" className="arrow-icon" />
+        {title} <Icon size="sm" icon="angle-down" className="arrow-icon" />
       </div>
       {renderChildren()}
     </li>
