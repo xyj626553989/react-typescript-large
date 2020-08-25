@@ -35,7 +35,6 @@ const SubMenu: FC<SubMenuProps> = (properties) => {
           onClick: handleClick,
         }
       : {};
-
   const hoverEvents =
     context.mode !== 'vertical'
       ? {
