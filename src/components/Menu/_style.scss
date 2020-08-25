@@ -68,7 +68,7 @@
   }
 }
 .s-submenu {
-  display: none;
+  // display: none;
   padding-left: 0;
   white-space: nowrap;
   list-style: none;
@@ -87,7 +87,7 @@
     }
   }
   &.menu-opened {
-    display: block;
+    // display: block;
   }
 }
 .menu-horizontal {
@@ -104,19 +104,3 @@
     box-shadow: $submenu-box-shadow;
   }
 }
-.slide-enter {
-  opacity: 0;
-}
-.slide-enter-active {
-  opacity: 1;
-  transition: opacity 0.5s ease-out;
-}
-// .slide-exit {
-// }
-.slide-exit-active {
-  opacity: 0;
-  transition: opacity 0.5s ease-out;
-}
-// .slide-exit-done {
-//   opacity: 0;
-// }
