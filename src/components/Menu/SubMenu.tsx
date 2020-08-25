@@ -1,5 +1,6 @@
 import React, { FunctionComponentElement, useState, FC, useContext, useCallback, ReactElement } from 'react';
 import classNames from 'classnames';
+import { CSSTransition } from 'react-transition-group';
 import MenuContext, { MenuContextProps as MenuContextProperties } from './MenuContext';
 import { MenuItemProps as MenuItemProperties } from './MenuItem';
 import Icon from '../Icon';
@@ -63,7 +64,11 @@ const SubMenu: FC<SubMenuProps> = (properties) => {
       console.error('Warning: Menu has a child which is not MenuItem component');
       return null;
     });
-    return <ul className={subMenuClasses}>{childrenComponent}</ul>;
+    return (
+      <CSSTransition in={opened} timeout={500} classNames="slide">
+        <ul className={subMenuClasses}>{childrenComponent}</ul>
+      </CSSTransition>
+    );
   }, [children, opened, index]);
 
   return (

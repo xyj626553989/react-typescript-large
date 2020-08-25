@@ -104,3 +104,19 @@
     box-shadow: $submenu-box-shadow;
   }
 }
+.slide-enter {
+  opacity: 0;
+}
+.slide-enter-active {
+  opacity: 1;
+  transition: opacity 0.5s ease-out;
+}
+// .slide-exit {
+// }
+.slide-exit-active {
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
+}
+// .slide-exit-done {
+//   opacity: 0;
+// }
