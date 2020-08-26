@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --env.dev --config ./build/webpack.dev.js ",
-    "build": "webpack --env.prod --config ./build/webpack.prod.js ",
+    "build": "npm run clean && npm run ts-build && npm run  css-build",
     "dll": "webpack --config ./build/webpack.dll.js",
     "lint": "npm run lint-eslint && npm run lint-stylelint",
     "lint-eslint": "eslint -c .eslintrc.js --ext .ts,.tsx,.js src --fix",
@@ -13,7 +13,10 @@
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "test": "jest"
+    "test": "jest",
+    "clean": "rimraf dist",
+    "ts-build": "tsc -p tsconfig.build.json",
+    "css-build": "node-sass ./src/styles/index.scss ./dist/index.css"
   },
   "husky": {
     "hooks": {
@@ -84,6 +87,7 @@
     "prettier": "^2.0.5",
     "purgecss-webpack-plugin": "^2.3.0",
     "react-is": "^16.13.1",
+    "rimraf": "^3.0.2",
     "sass-loader": "^9.0.3",
     "style-loader": "^1.2.1",
     "stylelint": "^13.6.1",
