@@ -12,7 +12,7 @@ const App = () => {
         onSelect={(index) => {
           console.log(index);
         }}
-        // mode="vertical"
+        mode="vertical"
         defaultOpenedSubmenu={['1']}
       >
         <MenuItem>111</MenuItem>

@@ -11,7 +11,6 @@ type TransitionProps = CSSTransitionProps & {
 
 const Transition: React.FC<TransitionProps> = (properties) => {
   const { children, classNames, animation, ...properties_ } = properties;
-
   return (
     <CSSTransition {...properties_} classNames={classNames || animation}>
       {children}

@@ -1,8 +1,8 @@
 import React from 'react';
 import { render, RenderResult, fireEvent, cleanup, waitFor } from '@testing-library/react';
 import Menu, { MenuProps as MenuProperties } from './Menu';
-import MenuItem, { MenuItemProps as MenuItemProperties } from './MenuItem';
-import SubMenu, { SubMenuProps as SubMenuProperties } from './SubMenu';
+import MenuItem from './MenuItem';
+import SubMenu from './SubMenu';
 
 const testProperties: MenuProperties = {
   defaultIndex: '0',

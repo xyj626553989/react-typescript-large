@@ -1,6 +1,5 @@
 import React, { FunctionComponentElement, useState, FC, useContext, useCallback, ReactElement } from 'react';
 import classNames from 'classnames';
-
 import Transition from '@/components/Transition';
 import MenuContext, { MenuContextProps as MenuContextProperties } from './MenuContext';
 import { MenuItemProps as MenuItemProperties } from './MenuItem';
